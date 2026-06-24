@@ -1,10 +1,13 @@
 export default function Home() {
   return (
     <main style={{ padding: 40, fontFamily: "sans-serif" }}>
-      <h1>🚀 TaskFlow</h1>
-      <p>Backend + Frontend + MongoDB is working</p>
+      <h1>🚀 TaskFlow Pro</h1>
 
-      <a href="/dashboard">Go to Dashboard</a>
+      <p>Full-stack CRUD app with MongoDB + Next.js</p>
+
+      <a href="/dashboard">
+        <button style={{ marginTop: 20 }}>Go to Dashboard</button>
+      </a>
     </main>
   );
 }
