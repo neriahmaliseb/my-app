@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 type Task = {
   _id: string;
   title: string;
-  description?: string;
+  description: string;
   completed: boolean;
 };
 
@@ -14,19 +14,17 @@ export default function Dashboard() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const fetchTasks = async () => {
+  const loadTasks = async () => {
     const res = await fetch("/api/tasks");
     const data = await res.json();
     setTasks(data);
   };
 
   useEffect(() => {
-    fetchTasks();
+    loadTasks();
   }, []);
 
   const addTask = async () => {
-    if (!title) return;
-
     await fetch("/api/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -35,7 +33,7 @@ export default function Dashboard() {
 
     setTitle("");
     setDescription("");
-    fetchTasks();
+    loadTasks();
   };
 
   const deleteTask = async (id: string) => {
@@ -43,11 +41,11 @@ export default function Dashboard() {
       method: "DELETE",
     });
 
-    fetchTasks();
+    loadTasks();
   };
 
   const toggleTask = async (task: Task) => {
-    await fetch(`/api/tasks`, {
+    await fetch("/api/tasks", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -56,50 +54,31 @@ export default function Dashboard() {
       }),
     });
 
-    fetchTasks();
+    loadTasks();
   };
 
   return (
     <main style={{ padding: 30, fontFamily: "sans-serif" }}>
-      <h1>⚡ TaskFlow Dashboard</h1>
+      <h1>⚡ Dashboard</h1>
 
-      <div style={{ marginBottom: 20 }}>
-        <input
-          placeholder="Task title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          style={{ marginRight: 10 }}
-        />
+      <input
+        placeholder="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
 
-        <input
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          style={{ marginRight: 10 }}
-        />
+      <input
+        placeholder="Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
 
-        <button onClick={addTask}>➕ Add Task</button>
-      </div>
+      <button onClick={addTask}>Add Task</button>
 
-      <div>
-        {tasks.length === 0 && <p>No tasks yet 🚀</p>}
-
+      <div style={{ marginTop: 20 }}>
         {tasks.map((task) => (
-          <div
-            key={task._id}
-            style={{
-              padding: 10,
-              marginBottom: 10,
-              border: "1px solid #ccc",
-              borderRadius: 8,
-              background: task.completed ? "#d1ffd1" : "#fff",
-            }}
-          >
-            <h3
-              style={{
-                textDecoration: task.completed ? "line-through" : "none",
-              }}
-            >
+          <div key={task._id} style={{ marginBottom: 10 }}>
+            <h3 style={{ textDecoration: task.completed ? "line-through" : "" }}>
               {task.title}
             </h3>
 
