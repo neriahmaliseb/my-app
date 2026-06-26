@@ -1,16 +1,17 @@
-# 🚀 TaskFlow AI
+# 🤖 TaskFlow AI
 
-A full-stack task management application built with Next.js, MongoDB, and Anthropic AI.
+TaskFlow AI is a full-stack task management application built with Next.js, MongoDB, and the Anthropic AI SDK. It allows users to manage tasks and interact with an AI assistant for task-related help.
 
-## 📌 Features
+## 🚀 Features
 
-* Create tasks
+* Create new tasks
 * View all tasks
 * Update task status
 * Delete tasks
 * MongoDB database integration
-* Anthropic AI API integration using the official SDK
-* Environment variables for secure API keys
+* AI Assistant powered by Anthropic
+* Real user input → LLM → AI response displayed in the app
+* Secure API key management using environment variables
 
 ## 🛠️ Tech Stack
 
@@ -21,13 +22,14 @@ A full-stack task management application built with Next.js, MongoDB, and Anthro
 * Mongoose
 * Anthropic SDK
 
-## 📂 Core Screens
+## 📂 Project Structure
 
 * Home Page
 * Dashboard
 * AI Chat API (`/api/chat`)
+* Task API (`/api/tasks`)
 
-## 🚀 Getting Started
+## ⚙️ Installation
 
 Install dependencies:
 
@@ -35,13 +37,13 @@ Install dependencies:
 npm install
 ```
 
-Run the development server:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Open:
+Open your browser:
 
 ```
 http://localhost:3000
@@ -49,13 +51,22 @@ http://localhost:3000
 
 ## 🔑 Environment Variables
 
-Create a `.env.local` file with:
+Create a `.env.local` file and add:
 
 ```
 MONGODB_URI=your_mongodb_connection_string
 ANTHROPIC_API_KEY=your_anthropic_api_key
 ```
 
-## 📖 Day 3 Progress
+## 🤖 AI Feature
 
-This project now includes a real LLM integration using the Anthropic SDK. The API key is loaded from an environment variable, and the application includes an API route that makes live requests to an Anthropic model.
+The application includes a working AI assistant that:
+
+1. Accepts a user's prompt.
+2. Sends it to the Anthropic API using the official SDK.
+3. Receives a response from the language model.
+4. Displays the AI-generated response in the application.
+
+## 📄 License
+
+This project was created for learning purposes as part of the Day 4 AI Feature build.
