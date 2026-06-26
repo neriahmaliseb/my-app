@@ -1,58 +1,61 @@
-# 🚀 Day 2 Build - Full Stack CRUD App
+# 🚀 TaskFlow AI
 
-## 👤 Author
-NERIAH MALISE B
+A full-stack task management application built with Next.js, MongoDB, and Anthropic AI.
 
----
+## 📌 Features
 
-## 📌 Overview
-This is a full-stack Next.js application built for Day 2 submission.  
-It includes authentication setup structure and a fully working CRUD system connected to MongoDB.
+* Create tasks
+* View all tasks
+* Update task status
+* Delete tasks
+* MongoDB database integration
+* Anthropic AI API integration using the official SDK
+* Environment variables for secure API keys
 
----
+## 🛠️ Tech Stack
 
-## 🧩 Features
+* Next.js
+* React
+* TypeScript
+* MongoDB
+* Mongoose
+* Anthropic SDK
 
-- Create tasks
-- Read tasks
-- Update tasks (if implemented)
-- Delete tasks (if implemented)
-- REST API using Next.js route handlers
-- MongoDB Atlas database integration
-- Deployed on Vercel
+## 📂 Core Screens
 
----
+* Home Page
+* Dashboard
+* AI Chat API (`/api/chat`)
 
-## 🖥️ Core Screens
+## 🚀 Getting Started
 
-- Home Page `/`
-- Dashboard `/dashboard`
-- API Endpoint `/api/tasks`
-
----
-
-## ⚙️ Tech Stack
-
-- Next.js (App Router)
-- React
-- TypeScript
-- MongoDB Atlas
-- Mongoose
-- Vercel (Deployment)
-
----
-
-## 🔌 API Routes
-
-- GET /api/tasks → Fetch all tasks
-- POST /api/tasks → Create task
-- DELETE /api/tasks → Delete task (if implemented)
-- PUT /api/tasks → Update task (if implemented)
-
----
-
-## ▶️ How to run locally
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Run the development server:
+
+```bash
 npm run dev
+```
+
+Open:
+
+```
+http://localhost:3000
+```
+
+## 🔑 Environment Variables
+
+Create a `.env.local` file with:
+
+```
+MONGODB_URI=your_mongodb_connection_string
+ANTHROPIC_API_KEY=your_anthropic_api_key
+```
+
+## 📖 Day 3 Progress
+
+This project now includes a real LLM integration using the Anthropic SDK. The API key is loaded from an environment variable, and the application includes an API route that makes live requests to an Anthropic model.
